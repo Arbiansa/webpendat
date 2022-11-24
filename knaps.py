@@ -31,8 +31,8 @@ upload_data, preporcessing, modeling, implementation = st.tabs(["Upload Data", "
 
 with upload_data:
     st.write("""# Upload File""")
-    st.write("Dataset yang digunakan adalah healthcare-dataset-stroke-data dataset yang diambil dari https://www.kaggle.com/datasets/mnassrib/telecom-churn-datasets")
-    st.write("Total dataset yang dugunakan sebanyak 3335 data, dengan data training 80% (2667) dan data testing 20% (668)")
+    st.write("Dataset yang digunakan adalah Telecom Churn Dataset Cleaned Orange dataset ini diambil dari https://www.kaggle.com/datasets/mnassrib/telecom-churn-datasets")
+    st.write("Total dataset yang dugunakan sebanyak 3335 data, dengan data training 80% berjumlah (2667) dan data testing 20% berjumlah (668)")
     uploaded_files = st.file_uploader("Upload file CSV", accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         df = pd.read_csv(uploaded_file)
