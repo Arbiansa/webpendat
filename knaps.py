@@ -23,16 +23,16 @@ from sklearn.utils.validation import joblib
 
 
 
-st.title("PENAMBANGAN DATA")
-st.write("By: MUHAMMAD ARBIANSYAFA SISWANTO - 200411100195")
-st.write("Grade: Penambangan Data C")
+st.title("DATAMINING")
+st.write("MUHAMMAD ARBIANSYAFA SISWANTO - 200411100195")
+st.write("Penambangan Data C")
 upload_data, preporcessing, modeling, implementation = st.tabs(["Upload Data", "Prepocessing", "Modeling", "Implementation"])
 
 
 with upload_data:
     st.write("""# Upload File""")
     st.write("Dataset yang digunakan adalah healthcare-dataset-stroke-data dataset yang diambil dari https://www.kaggle.com/datasets/mnassrib/telecom-churn-datasets")
-    st.write("Total datanya adalah 5110 dengan data training 80% (4088) dan data testing 20% (1022)")
+    st.write("Total dataset yang dugunakan sebanyak 3335 data, dengan data training 80% (2667) dan data testing 20% (668)")
     uploaded_files = st.file_uploader("Upload file CSV", accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         df = pd.read_csv(uploaded_file)
