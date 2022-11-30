@@ -8,9 +8,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
 
-import matplotlib
 import matplotlib.pyplot as plt
-matplotlib in(['line']) 
 
 import numpy as np  # linear algebra
 import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
@@ -125,5 +123,4 @@ with modeling:
     conf = confusion_matrix(Y_test, Y_pred)
     print('confusion matrix \n',  conf)
 
-    sns.heatmap(conf, center=True)
     plt.show()
