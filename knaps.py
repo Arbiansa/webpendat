@@ -48,16 +48,16 @@ with preporcessing:
     st.write(df_data_train['Voice mail plan'].isnull().sum())
     st.write(df_data_train['International plan'].isnull().sum())
     
-    df_data_train.head() 
-    
+    st.write(df_data_train.head())
+        
     df_data_train['Total charge amount'] = df_data_train['Total day charge'] + df_data_train['Total eve charge'] + df_data_train['Total night charge']+ df_data_train['Total intl charge']
     df_data_train['Total call minutes'] = df_data_train['Total day minutes'] + df_data_train['Total eve minutes'] + df_data_train['Total night minutes'] + df_data_train['Total intl minutes']
     df_data_train['Total number of calls'] = df_data_train['Total day calls'] + df_data_train['Total eve calls'] + df_data_train['Total night calls'] + df_data_train['Total intl calls'] 
     
-    df_data_train.sample(10)
+    st.write(df_data_train.sample(10))
     
     df_data_test['Total charge amount'] = df_data_test['Total day charge'] + df_data_test['Total eve charge'] + df_data_test['Total night charge']+ df_data_test['Total intl charge']
     df_data_test['Total call minutes'] = df_data_test['Total day minutes'] + df_data_test['Total eve minutes'] + df_data_test['Total night minutes'] + df_data_test['Total intl minutes']
     df_data_test['Total number of calls'] = df_data_test['Total day calls'] +df_data_test['Total eve calls'] + df_data_test['Total night calls'] + df_data_test['Total intl calls'] 
 
-    df_data_test.sample(10)
+    st.write(df_data_test.sample(10))
