@@ -1,12 +1,15 @@
 import numpy as np  # linear algebra
 import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
+import seaborn as sns
 
 import streamlit as st
+import matplotlib.pyplot as plt
 
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import LabelEncoder
-
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix
 
 st.title("PENAMBANGAN DATA")
 st.write("By: Indyra Januar - 200411100022")
@@ -61,3 +64,33 @@ with preporcessing:
     df_data_test['Total number of calls'] = df_data_test['Total day calls'] +df_data_test['Total eve calls'] + df_data_test['Total night calls'] + df_data_test['Total intl calls'] 
 
     st.write(df_data_test.sample(10))
+    
+with modeling:
+    df_data_train = df_train.copy()
+    df_data_test=df_train.copy()
+
+    X_train = df_data_train.drop("Churn", axis=1)
+    Y_train = df_data_train["Churn"]
+    X_test  = df_data_test.drop("Churn", axis=1)
+    Y_test = df_data_test["Churn"]
+    X_train.shape, Y_train.shape, X_test.shape
+    
+    knn = KNeighborsClassifier(n_neighbors = 3)
+    knn.fit(X_train, Y_train)
+    Y_pred = knn.predict(X_test)
+
+    #Calculating Details
+    acc_knn_train = round(knn.score(X_train, Y_train) * 100, 2)
+    acc_knn_test =round(knn.score(X_test, Y_test) * 100, 2)
+    print('KNN Train Score is : ',  acc_knn_train )
+    print('KNN test Score is : ' , acc_knn_test )
+    #Calculating Prediction
+    accuracy= accuracy_score(Y_test , Y_pred )
+
+    print('Accuracy Score is  = ', accuracy )
+
+    conf = confusion_matrix(Y_test , Y_pred )
+    print('confusion matrix \n',  conf)
+
+    sns.heatmap(conf, center = True)
+    plt.show()
