@@ -45,8 +45,8 @@ with preporcessing:
     df_data_test['Voice mail plan'].replace(['No','Yes'],[0,1],inplace=True)
     df_data_train['Voice mail plan'].value_counts()
     
-    print(df_data_train['Voice mail plan'].isnull().sum())
-    print(df_data_train['International plan'].isnull().sum())
+    st.write(df_data_train['Voice mail plan'].isnull().sum())
+    st.write(df_data_train['International plan'].isnull().sum())
     
     df_data_train.head() 
     
