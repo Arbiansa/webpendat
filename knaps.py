@@ -27,7 +27,7 @@ with upload_data:
     for uploaded_file in uploaded_files:
         df_train = pd.read_csv(uploaded_file)
         st.write("Nama File Anda = ", uploaded_file.name)
-        st.dataframe(df)
+        st.dataframe(df_train)
 
 with preporcessing:
     st.write("""# Preprocessing""")
